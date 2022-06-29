@@ -29,7 +29,7 @@ function playRound(playerSelection, computerSelection) {
   } else if(playerSelection.toUpperCase() === 'SCISSORS' && computerSelection === 'ROCK') {
       console.log(`Your point: ${playerPoint} and Computer\'s point: ${++computerPoint}`);  
       return "You Lose! Rock beats Scissors";
-  } else if(playerSelection === "" || playerSelection === null) {
+  } else if((playerSelection === "") || (playerSelection === null) || (playerSelection.toUpperCase() !== 'ROCK') || (playerSelection.toUpperCase() !== 'PAPER') || (playerSelection.toUpperCase() !== 'SCISSORS')) {
       console.log(`Your point: ${playerPoint} and Computer\'s point: ${++computerPoint}`);  
       return "You didn't even make a choice!";
   } else {console.log(`Your point: ${playerPoint} and Computer\'s point: ${computerPoint}`); 
@@ -37,44 +37,50 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-let computerSelection = computerPlay();
-  //let user input a choice
-
 function game() {
-  let playerSelection = prompt('Rock, Paper, Scissors?', '');
-  console.log(playRound(playerSelection, computerSelection));
-}
-
- //game report
- function gameReport() {
-    if (playerPoint > computerPlay) {
-      return "You win!"
-    } else if (playerPoint == computerPoint) {
-      return "Draw. Rematch!"
-    } else return "You lose!"
-  }
-
-//make a game five rounds
-for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 5; i++) {
     if (i === 0) {
       alert("Round 1");
-      game();
+      let playerSelection = prompt('Rock, Paper, Scissors?', '');
+      let computerSelection = computerPlay();
+      console.log(playRound(playerSelection, computerSelection));
     } else if (i === 1) {
       alert("Round 2");
-      game();
+      let playerSelection = prompt('Rock, Paper, Scissors?', '');
+      let computerSelection = computerPlay();
+      console.log(playRound(playerSelection, computerSelection));
     } else if (i === 2) {
       alert("Round 3");
-      game();
+      let playerSelection = prompt('Rock, Paper, Scissors?', '');
+      let computerSelection = computerPlay();
+      console.log(playRound(playerSelection, computerSelection));
     } else if (i === 3) {
       alert("Round 4");
-      game();
+      let playerSelection = prompt('Rock, Paper, Scissors?', '');
+      let computerSelection = computerPlay();
+      console.log(playRound(playerSelection, computerSelection));
     } else {
       alert("Final Round");
-      game();
+      let playerSelection = prompt('Rock, Paper, Scissors?', '');
+      let computerSelection = computerPlay();
+      console.log(playRound(playerSelection, computerSelection));
     }
+ } 
+}
+
+function gameReport() {
+    if (playerPoint > computerPlay) {
+      return "You win!";
+    } else if (playerPoint < computerPoint) {
+      return "You lose!";
+    } else if (playerPoint == computerPoint) {
+      return "Draw!";
+    } else return "Huh?"
  }
 
- console.log(gameReport());
+game();
+console.log(gameReport());
+
 
 
 
