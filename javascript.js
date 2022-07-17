@@ -34,9 +34,9 @@ let computerPoint = 0;
 
 //create the game mechanism and play a round
 function playRound(playerSelection, computerSelection) {
-  for (let i = 1; i <= 5; i++) {
+
     if (playerSelection === 'ROCK' && computerSelection === 'SCISSORS') {
-      div.textContent = (`Your point: ${++playerPoint} and Computer\'s point: ${computerPoint}` + '\n' + "You Win! Rock beats Scissors!");
+      div.textContent = (`Your point: ${++playerPoint} and Computer\'s point: ${computerPoint}` + "\nYou Win! Rock beats Scissors!");
       } else if(playerSelection === 'PAPER' && computerSelection === 'SCISSORS') {
         div.textContent = (`Your point: ${playerPoint} and Computer\'s point: ${++computerPoint}` + '\n' + "You Lose! Scissors beats Paper!");
       } else if(playerSelection === 'ROCK' && computerSelection === 'PAPER') {
@@ -53,30 +53,32 @@ function playRound(playerSelection, computerSelection) {
         div.textContent = (`Your point: ${playerPoint} and Computer\'s point: ${computerPoint}` + '\n' + "Draw");
       }
     container.appendChild(div);
+    if ((playerPoint === 5) || (computerPoint === 5)) {
+      gameReport();
+      playerPoint = 0;
+      computerPoint = 0;
     }
-  }  
+  }
+  
 
 function game() {
-
-  // for (let i = 1; i <= 5; i++) {
-    // alert (`Round ${i}`);
-    let computerSelection = computerPlay();
-    let playerSelection = this.className;
-    console.log (playRound(playerSelection, computerSelection));
-    // console.log(gameReport());
+  let computerSelection = computerPlay();
+  let playerSelection = this.className;
+  playRound(playerSelection, computerSelection);
  }
  
 
 
 function gameReport() {
     if (playerPoint > computerPoint) {
-      return "You win!" + ` Your score: ${playerPoint}` + ` Com score: ${computerPoint}`;
+      div.textContent = "You win!" + ` Your score: ${playerPoint}` + ` Com score: ${computerPoint}`;
     } else if (playerPoint < computerPoint) {
-      return "You lose!" + ` Your score: ${playerPoint}` + ` Com score: ${computerPoint}`;
+      div.textContent = "You lose!" + ` Your score: ${playerPoint}` + ` Com score: ${computerPoint}`;
     } else if (playerPoint == computerPoint) {
-      return "Draw!" + ` Your score: ${playerPoint}` + ` Com score: ${computerPoint}`;
+      div.textContent = "Draw!" + ` Your score: ${playerPoint}` + ` Com score: ${computerPoint}`;
     }  
  }
+
 
 
 
