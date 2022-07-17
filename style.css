@@ -1,0 +1,18 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 100vh;
+}
+
+.ROCK,
+.PAPER,
+.SCISSORS {
+ flex: 0;
+ min-height: 300px;
+ min-width: 300px;
+}

@@ -36,7 +36,7 @@ let computerPoint = 0;
 function playRound(playerSelection, computerSelection) {
 
     if (playerSelection === 'ROCK' && computerSelection === 'SCISSORS') {
-      div.textContent = (`Your point: ${++playerPoint} and Computer\'s point: ${computerPoint}` + "\nYou Win! Rock beats Scissors!");
+      div.textContent = (`Your point: ${++playerPoint} and Computer\'s point: ${computerPoint}` + '\n' + "You Win! Rock beats Scissors!");
       } else if(playerSelection === 'PAPER' && computerSelection === 'SCISSORS') {
         div.textContent = (`Your point: ${playerPoint} and Computer\'s point: ${++computerPoint}` + '\n' + "You Lose! Scissors beats Paper!");
       } else if(playerSelection === 'ROCK' && computerSelection === 'PAPER') {
