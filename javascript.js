@@ -60,9 +60,3 @@ game();
 console.log(gameReport());
 
 
-
-
-
-
-//(playerSelection.toUpperCase() !== 'ROCK') || (playerSelection.toUpperCase() !== 'PAPER') || (playerSelection.toUpperCase() !== 'SCISSORS')) 
-
