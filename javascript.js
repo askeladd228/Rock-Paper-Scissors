@@ -29,53 +29,31 @@ function playRound(playerSelection, computerSelection) {
   } else if(playerSelection.toUpperCase() === 'SCISSORS' && computerSelection === 'ROCK') {
       console.log(`Your point: ${playerPoint} and Computer\'s point: ${++computerPoint}`);  
       return "You Lose! Rock beats Scissors";
-  } else if((playerSelection === "") || (playerSelection === null) || (playerSelection.toUpperCase() !== 'ROCK') || (playerSelection.toUpperCase() !== 'PAPER') || (playerSelection.toUpperCase() !== 'SCISSORS')) {
+  } else if((playerSelection === "") || (playerSelection === null)) {
       console.log(`Your point: ${playerPoint} and Computer\'s point: ${++computerPoint}`);  
       return "You didn't even make a choice!";
-  } else {console.log(`Your point: ${playerPoint} and Computer\'s point: ${computerPoint}`); 
-      return "It's a Draw!";
+  } else if ((playerSelection.toUpperCase !== 'ROCK') || (playerSelection.toUpperCase !== 'PAPER') || (playerSelection.toUpperCase !== 'SCISSORS') )
+      console.log (`Your point: ${playerPoint} and Computer\'s point: ${++computerPoint}`);
+      return "It's rock, paper, or scissors my dude.";
   }
-}
 
 function game() {
-  for (let i = 0; i < 5; i++) {
-    if (i === 0) {
-      alert("Round 1");
+  for (let i = 1; i <= 5; i++) {
+    alert (`Round ${i}`);
       let playerSelection = prompt('Rock, Paper, Scissors?', '');
       let computerSelection = computerPlay();
       console.log(playRound(playerSelection, computerSelection));
-    } else if (i === 1) {
-      alert("Round 2");
-      let playerSelection = prompt('Rock, Paper, Scissors?', '');
-      let computerSelection = computerPlay();
-      console.log(playRound(playerSelection, computerSelection));
-    } else if (i === 2) {
-      alert("Round 3");
-      let playerSelection = prompt('Rock, Paper, Scissors?', '');
-      let computerSelection = computerPlay();
-      console.log(playRound(playerSelection, computerSelection));
-    } else if (i === 3) {
-      alert("Round 4");
-      let playerSelection = prompt('Rock, Paper, Scissors?', '');
-      let computerSelection = computerPlay();
-      console.log(playRound(playerSelection, computerSelection));
-    } else {
-      alert("Final Round");
-      let playerSelection = prompt('Rock, Paper, Scissors?', '');
-      let computerSelection = computerPlay();
-      console.log(playRound(playerSelection, computerSelection));
-    }
  } 
 }
 
 function gameReport() {
-    if (playerPoint > computerPlay) {
-      return "You win!";
+    if (playerPoint > computerPoint) {
+      return "You win!" + ` Your score: ${playerPoint}` + ` Com score: ${computerPoint}`;
     } else if (playerPoint < computerPoint) {
-      return "You lose!";
+      return "You lose!" + ` Your score: ${playerPoint}` + ` Com score: ${computerPoint}`;
     } else if (playerPoint == computerPoint) {
-      return "Draw!";
-    } else return "Huh?"
+      return "Draw!" + ` Your score: ${playerPoint}` + ` Com score: ${computerPoint}`;
+    }  
  }
 
 game();
