@@ -15,11 +15,13 @@ paper.addEventListener('click', game);
 scissors.addEventListener('click', game);
 
 const container = document.querySelector('.container');
+const bigContainer = document.querySelector('.bigContainer');
 container.appendChild(rock);
 container.appendChild(paper);
 container.appendChild(scissors);
 
 const div = document.createElement("div");
+div.classList.add('text');
 
 const array = ['ROCK', 'PAPER', 'SCISSORS'];
 
@@ -52,7 +54,7 @@ function playRound(playerSelection, computerSelection) {
       } else {
         div.textContent = (`Your point: ${playerPoint} and Computer\'s point: ${computerPoint}` + '\n' + "Draw");
       }
-    container.appendChild(div);
+    bigContainer.appendChild(div);
     if ((playerPoint === 5) || (computerPoint === 5)) {
       gameReport();
       playerPoint = 0;
