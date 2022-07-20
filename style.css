@@ -30,11 +30,14 @@ button {
  background-color: white;
  border-radius: .5cm;
  border-style: ridge;
+ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+ font-size: 1cm;
 }
 
 button:hover {
   transform: scale(1.1);
   transition: 20ms;
+  background-color: aqua;
 }
 
 .bigContainer {
@@ -45,7 +48,7 @@ button:hover {
 }
 
 .score, .result {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: large;
   margin-top: 10px;
   border-style: dashed;
@@ -73,4 +76,5 @@ button:hover {
 
 h2 {
   text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
