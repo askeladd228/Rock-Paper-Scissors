@@ -44,7 +44,7 @@ button:hover {
   min-height: 100vh;
 }
 
-.text {
+.score, .result {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: large;
   margin-top: 10px;
@@ -52,8 +52,25 @@ button:hover {
   padding: 20px;
   border-radius: .5cm;
   align-self: center;
-  min-width: 1000px;
+  min-width: 500px;
   text-align: center;
   border-style: ridge;
   border-color: black;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  align-self: center;
+}
+
+.boardsContainer {
+  display: flex;
+  justify-content: center;
+}
+
+h2 {
+  text-align: center;
 }

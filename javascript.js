@@ -1,6 +1,9 @@
 const rock = document.createElement('button');
 const paper = document.createElement('button');
 const scissors = document.createElement('button');
+const boardsContainer = document.querySelector('.boardsContainer');
+const scoreBoardContainer = document.querySelector('.scoreBoardContainer');
+const resultContainer = document.querySelector('.resultContainer');
 
 rock.classList.add('ROCK');
 paper.classList.add('PAPER');
@@ -20,8 +23,26 @@ container.appendChild(rock);
 container.appendChild(paper);
 container.appendChild(scissors);
 
-const div = document.createElement("div");
-div.classList.add('text');
+const scoreBoard = document.createElement("div");
+scoreBoard.classList.add('score');
+const result = document.createElement('div');
+result.classList.add('result');
+
+const scoreBoardTitle = document.createElement("h2");
+scoreBoardTitle.textContent = 'SCOREBOARD';
+scoreBoardTitle.classList.add('title');
+scoreBoardContainer.appendChild(scoreBoardTitle);
+scoreBoardContainer.appendChild(scoreBoard);
+boardsContainer.appendChild(scoreBoardContainer);
+
+const resultTitle = document.createElement("h2");
+resultTitle.textContent = 'RESULT';
+resultTitle.classList.add('title');
+resultContainer.appendChild(resultTitle);
+resultContainer.appendChild(result);
+boardsContainer.appendChild(resultContainer);
+
+bigContainer.appendChild(boardsContainer);
 
 const array = ['ROCK', 'PAPER', 'SCISSORS'];
 
@@ -38,23 +59,32 @@ let computerPoint = 0;
 function playRound(playerSelection, computerSelection) {
 
     if (playerSelection === 'ROCK' && computerSelection === 'SCISSORS') {
-      div.textContent = (`Your point: ${++playerPoint} and Computer\'s point: ${computerPoint}` + '\n' + "You Win! Rock beats Scissors!");
+      scoreBoard.textContent = `Your point: ${++playerPoint} and Computer\'s point: ${computerPoint}`
+      result.textContent = "You Win! Rock beats Scissors!"
       } else if(playerSelection === 'PAPER' && computerSelection === 'SCISSORS') {
-        div.textContent = (`Your point: ${playerPoint} and Computer\'s point: ${++computerPoint}` + '\n' + "You Lose! Scissors beats Paper!");
+        scoreBoard.textContent = `Your point: ${playerPoint} and Computer\'s point: ${++computerPoint}` 
+        result.textContent = "You Lose! Scissors beats Paper!"
       } else if(playerSelection === 'ROCK' && computerSelection === 'PAPER') {
-        div.textContent = (`Your point: ${playerPoint} and Computer\'s point: ${++computerPoint}` + '\n' + "You Lose! Paper beats Rock!");
+        scoreBoard.textContent = `Your point: ${playerPoint} and Computer\'s point: ${++computerPoint}` 
+        result.textContent = "You Lose! Paper beats Rock!"
       } else if(playerSelection === 'SCISSORS' && computerSelection === 'PAPER') {
-        div.textContent = (`Your point: ${++playerPoint} and Computer\'s point: ${computerPoint}` + '\n' + "You Win! Scissors beats Paper");  
+        scoreBoard.textContent = `Your point: ${++playerPoint} and Computer\'s point: ${computerPoint}` 
+        result.textContent = "You Win! Scissors beats Paper"
       } else if(playerSelection === 'PAPER' && computerSelection === 'ROCK') {
-        div.textContent = (`Your point: ${++playerPoint} and Computer\'s point ${computerPoint}` + '\n' + "You Win! Paper beats Rock!");  
+        scoreBoard.textContent = `Your point: ${++playerPoint} and Computer\'s point ${computerPoint}` 
+        result.textContent = "You Win! Paper beats Rock!"
       } else if(playerSelection === 'SCISSORS' && computerSelection === 'ROCK') {
-        div.textContent = (`Your point: ${playerPoint} and Computer\'s point: ${++computerPoint}` + '\n' + "You Lose! Rock beats Scissors");  
+        scoreBoard.textContent = `Your point: ${playerPoint} and Computer\'s point: ${++computerPoint}` 
+        result.textContent = "You Lose! Rock beats Scissors"
       } else if((playerSelection === "") || (playerSelection === null)) {
-        div.textContent = (`Your point: ${playerPoint} and Computer\'s point: ${++computerPoint}` + '\n' + "You didn't even make a choice!");  
+        scoreBoard.textContent = `Your point: ${playerPoint} and Computer\'s point: ${++computerPoint}` 
+        result.textContent = "You didn't even make a choice!"
       } else {
-        div.textContent = (`Your point: ${playerPoint} and Computer\'s point: ${computerPoint}` + '\n' + "Draw");
+        scoreBoard.textContent = `Your point: ${playerPoint} and Computer\'s point: ${computerPoint}` 
+        result.textContent = "Draw"
       }
-    bigContainer.appendChild(div);
+    scoreBoardContainer.appendChild(scoreBoard);
+    resultContainer.appendChild(result);
     if ((playerPoint === 5) || (computerPoint === 5)) {
       gameReport();
       playerPoint = 0;
@@ -73,11 +103,11 @@ function game() {
 
 function gameReport() {
     if (playerPoint > computerPoint) {
-      div.textContent = "You win!" + ` Your score: ${playerPoint}` + ` Com score: ${computerPoint}`;
+      scoreBoard.textContent = "You win!" + ` Your score: ${playerPoint}` + ` Com score: ${computerPoint}`;
     } else if (playerPoint < computerPoint) {
-      div.textContent = "You lose!" + ` Your score: ${playerPoint}` + ` Com score: ${computerPoint}`;
+      scoreBoard.textContent = "You lose!" + ` Your score: ${playerPoint}` + ` Com score: ${computerPoint}`;
     } else if (playerPoint == computerPoint) {
-      div.textContent = "Draw!" + ` Your score: ${playerPoint}` + ` Com score: ${computerPoint}`;
+      scoreBoard.textContent = "Draw!" + ` Your score: ${playerPoint}` + ` Com score: ${computerPoint}`;
     }  
  }
 
